@@ -39,6 +39,7 @@ function calculateMonthlyPayment(values) {
   let amount = values.amount;
   let rate = (values.rate / 100) / 12;
   let years = values.years * -12;
+
   let pay = (amount * (rate) / (1 - (1 + rate) ** years));
   let payment = pay.toFixed(2).toString();
 
@@ -49,6 +50,6 @@ function calculateMonthlyPayment(values) {
     monthlyPayment.innerText = monthly;
   }
 
-  // updateMonthly(payment);
+  updateMonthly(payment);
   return payment;
 }
