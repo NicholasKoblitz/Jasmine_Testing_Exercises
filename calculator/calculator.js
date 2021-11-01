@@ -29,10 +29,7 @@ function setupIntialValues() {
 // Get the current values from the UI
 // Update the monthly payment
 function update() {
-  const nums = getCurrentUIValues();
-  const pay = calculateMonthlyPayment(nums);
-  console.log(pay);
-
+  return calculateMonthlyPayment(getCurrentUIValues());
 }
 
 // Given an object of values (a value has amount, years and rate ),
@@ -42,9 +39,9 @@ function calculateMonthlyPayment(values) {
   let amount = values.amount;
   let rate = (values.rate / 100) / 12;
   let years = values.years * -12;
-  let pay = (amount * rate) / (1 - (1 + rate) ** years);
-  let payment = Number.parseFloat(pay).toFixed(2);
-  let month = payment.toString();
+  let pay = (amount * (rate) / (1 - (1 + rate) ** years));
+  let payment = pay.toFixed(2).toString();
+
   // Given a string representing the monthly payment value,
   // update the UI to show the value.
   function updateMonthly(monthly) {
@@ -52,7 +49,6 @@ function calculateMonthlyPayment(values) {
     monthlyPayment.innerText = monthly;
   }
 
-  // updateMonthly(month);
+  // updateMonthly(payment);
   return payment;
-
 }
