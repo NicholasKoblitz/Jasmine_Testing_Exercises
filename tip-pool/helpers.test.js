@@ -24,13 +24,15 @@ describe("Helper Tests (CalculateTipPrecent)", function () {
 describe("Helper Tests (appendTd)", function () {
 
     beforeEach(function () {
-        serverNameInput.value = "Nick";
+        serverNameInput.value = 'Nick';
+        submitServerInfo();
     })
 
     it('should append a td element to a tr', function () {
-        appendTd(document.createElement('tr'), "2");
-        // let newTd = document.createElement('td');
-        // expect(appendTd, (document.createElement('tr'), "2")).toEqual()
-        expect(document.querySelector("#server1 td")).toEqual("Nick");
+        expect(serverTbody.childNodes[0].childNodes[0].innerText).toEqual('Nick');
+    })
+
+    afterEach(function () {
+        serverTbody.deleteRow(0);
     })
 })
