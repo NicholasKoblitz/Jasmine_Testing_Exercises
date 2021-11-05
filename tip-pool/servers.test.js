@@ -23,11 +23,9 @@ describe("Servers test (with setup and tear-down)", function () {
 
   afterEach(function () {
     allServers = {};
+    serverTbody.innerHTML = "";
     serverNameInput.value = '';
   });
 
-  // afterAll(function () {
-  //   serverTbody.children[0].remove();
-  // })
 });
 
