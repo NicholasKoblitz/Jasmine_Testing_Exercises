@@ -21,18 +21,27 @@ describe("Helper Tests (CalculateTipPrecent)", function () {
 
 })
 
-describe("Helper Tests (appendTd)", function () {
+describe("Helper Tests (appendTd and appendDeleteBtn)", function () {
 
     beforeEach(function () {
         serverNameInput.value = 'Nick';
         submitServerInfo();
+        console.dir(serverTbody)
     })
 
     it('should append a td element to a tr', function () {
         expect(serverTbody.childNodes[0].childNodes[0].innerText).toEqual('Nick');
     })
 
-    afterEach(function () {
+    it('should be part of serverTbody', function () {
+        expect(serverTbody.childNodes[0].childNodes[2].innerText).toEqual('X')
+    })
+
+    afterAll(function () {
         serverTbody.deleteRow(0);
+        serverNameInput.value = '';
+        serverTbody.removeChild(serverTbody.childNodes[0]);
+
+
     })
 })
